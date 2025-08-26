@@ -6,37 +6,37 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class ProductDAO {
+public class FuncionarioDAO {
 
-    public void insert(String nome, double preco, int quantidade){
-        String query = "INSERT INTO Produtos (nome, preco, quantidade) VALUES (?, ?, ?)";
+    public void insert(String nome, String cargo, double salario){
+        String query = "INSERT INTO Funcionarios (nome, cargo, salario) VALUES (?, ?, ?)";
 
         try(Connection conn = Conexao.connect();
             PreparedStatement stmt = conn.prepareStatement(query)){
 
             stmt.setString(1, nome);
-            stmt.setDouble(2, preco);
-            stmt.setInt(3, quantidade);
+            stmt.setString(2, cargo);
+            stmt.setDouble(3, salario);
             stmt.executeUpdate();
 
-            System.out.println("\nProduto adicionado com sucesso!");
+            System.out.println("\nFuncionário adicionando com sucesso!");
 
-        }catch(SQLException error){
-            error.printStackTrace();
+        }catch(SQLException e){
+            e.printStackTrace();
         }
     }
 
-    public void update(double preco, String nome){
-        String query = "UPDATE Produtos SET preco = ? WHERE nome = ?";
+    public void update(String nome, double salario){
+        String query = "UPDATE Funcionarios SET salario = ? WHERE nome = ?";
 
         try(Connection conn = Conexao.connect();
             PreparedStatement stmt = conn.prepareStatement(query)){
 
-            stmt.setDouble(1, preco);
+            stmt.setDouble(1, salario);
             stmt.setString(2, nome);
             stmt.executeUpdate();
 
-            System.out.println("\nProduto atualizado com sucesso!");
+            System.out.println("\nFuncionário atualizado com sucesso!");
 
         }catch(SQLException e){
             e.printStackTrace();
@@ -44,7 +44,7 @@ public class ProductDAO {
     }
 
     public void delete(String nome){
-        String query = "DELETE * FROM Produtos WHERE nome = ?";
+        String query = "DELETE * FROM Funcionarios WHERE nome = ?";
 
         try(Connection conn = Conexao.connect();
             PreparedStatement stmt = conn.prepareStatement(query)){
@@ -52,10 +52,11 @@ public class ProductDAO {
             stmt.setString(1, nome);
             stmt.executeUpdate();
 
-            System.err.println("\nProduto deletado com sucesso.");
+            System.err.println("\nFuncionário deletado com sucesso.");
 
         }catch(SQLException e){
             e.printStackTrace();
         }
     }
+
 }

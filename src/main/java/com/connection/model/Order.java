@@ -4,11 +4,13 @@ import java.sql.Date;
 
 public class Order {
 
+    private int id;
     private String cliente;
     private Date data_pedido;
     private double total;
 
-    public Order(String cliente, Date data_pedido, double total){
+    public Order(int id, String cliente, Date data_pedido, double total){
+        this.id = id;
         this.cliente = cliente;
         this.data_pedido = data_pedido;
         this.total = total;
@@ -36,5 +38,13 @@ public class Order {
 
     public void setTotal(double total) {
         this.total = total;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

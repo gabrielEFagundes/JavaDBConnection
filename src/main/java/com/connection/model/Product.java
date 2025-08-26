@@ -2,6 +2,7 @@ package com.connection.model;
 
 public class Product {
 
+    private int id;
     private String nome;
     private double preco;
     private int quantidade;
@@ -34,5 +35,13 @@ public class Product {
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

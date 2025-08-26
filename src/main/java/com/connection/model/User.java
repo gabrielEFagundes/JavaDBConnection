@@ -2,12 +2,16 @@ package com.connection.model;
 
 public class User {
 
+    private int id;
     private String nome;
+    private String email;
     private String curso;
     private String matricula;
 
-    public User(String nome, String curso, String matricula){
+    public User(int id, String nome, String email, String curso, String matricula){
+        this.id = id;
         this.nome = nome;
+        this.email = email;
         this.curso = curso;
         this.matricula = matricula;
     }
@@ -40,5 +44,21 @@ public class User {
 
     public void setMatricula(String matricula) {
         this.matricula = matricula;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
